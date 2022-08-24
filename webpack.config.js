@@ -85,7 +85,7 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Space Invaders 3d',
+            title: '3d Side Scroller',
             filename: 'index.html',
             template: 'src/template.html'
         })

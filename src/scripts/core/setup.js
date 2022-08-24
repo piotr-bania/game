@@ -17,21 +17,37 @@ const sizes = {
 
 // ------------------------- Camera -------------------------
 const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height)
-camera.position.set(0, 0, 4)
+camera.position.set(0, 0, 10)
 scene.add(camera)
 
 // ------------------------- Lights -------------------------
-// Ambient
-const ambientLight = new THREE.AmbientLight(0x7161F5, 0.75)
-scene.add(ambientLight)
+// // Ambient
+// const ambientLight = new THREE.AmbientLight(0xffa95c, 1)
+// scene.add(ambientLight)
 
-// Point
-const pointLight = new THREE.PointLight(0xcc6600, 0.75)
-pointLight.position.set(-0.5, 0.5, 0.75)
-scene.add(pointLight)
+// // Point
+// const pointLight = new THREE.PointLight(0xcc6600, 1)
+// pointLight.position.set(-0.5, 0.5, 0.75)
+// scene.add(pointLight)
+
+// // Directional
+// const directionalLight = new THREE.DirectionalLight(0x03544e, 1)
+// directionalLight.position.set(0, 0, 1)
+// scene.add(directionalLight)
+
+// Hemisphere
+const hemisphereLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4)
+hemisphereLight.position.set(1, -1, 0)
+scene.add(hemisphereLight)
+
+// Spot
+const spotLight = new THREE.SpotLight(0xffa95c, 1)
+spotLight.position.set(-5, 5, 5)
+spotLight.castShadow = true
+scene.add(spotLight)
 
 // ------------------------- Fog -------------------------
-const fog = new THREE.Fog('#F2F8F7', 1, 15)
+const fog = new THREE.Fog('#F2F8F7', 1, 50)
 scene.fog = fog
 
 // ------------------------- Renderer -------------------------
