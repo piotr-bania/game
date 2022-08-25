@@ -1,11 +1,14 @@
 import * as THREE from 'three'
 import scene from '../core/setup'
+import {
+    GLTFLoader
+} from 'three/examples/jsm/loaders/GLTFLoader'
 
-const geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1)
-const material = new THREE.MeshStandardMaterial({
-    color: 0x00ff00
+// Model
+import Outline from '../../assets/outlined_black.gltf'
+
+let black = new GLTFLoader()
+black.load(Outline, function (gltf) {
+    black = gltf.scene
+    scene.add(black)
 })
-const cube = new THREE.Mesh(geometry, material)
-scene.add(cube)
-
-cube.position.set(-0.5, -0.25, 0)
