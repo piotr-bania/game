@@ -16,8 +16,8 @@ const sizes = {
 }
 
 // ------------------------- Camera -------------------------
-const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height)
-camera.position.set(0, 0, 10)
+const camera = new THREE.PerspectiveCamera(95, sizes.width / sizes.height)
+camera.position.set(0, 0, 20)
 scene.add(camera)
 
 // ------------------------- Lights -------------------------
@@ -68,8 +68,9 @@ renderer.shadowMap.enabled = true
 
 // ------------------------- Controls -------------------------
 const controls = new OrbitControls(camera, renderer.domElement)
-controls.autoRotate = false
+controls.autoRotate = true
 controls.enableDamping = true
+controls.autoRotateSpeed = 10
 controls.enableZoom = false
 
 // ------------------------- Clock -------------------------
@@ -81,6 +82,9 @@ const tick = () => {
 
     // Render
     renderer.render(scene, camera)
+
+    // Controls
+    controls.update()
 
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
